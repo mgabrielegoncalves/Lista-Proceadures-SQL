@@ -9,7 +9,6 @@ v_preco_novo NUMERIC(10,2);
 BEGIN
 SELECT preco INTO v_preco_atual FROM produtos WHERE id = p_id;
 
-```
 IF NOT FOUND THEN
     RAISE EXCEPTION 'Produto ID=% não encontrado no sistema!', p_id;
 END IF;
@@ -29,7 +28,6 @@ SET preco = v_preco_novo
 WHERE id = p_id;
 
 RAISE NOTICE 'Desconto aplicado com sucesso! Novo preço do produto ID=% é R$ %', p_id, v_preco_novo;
-```
 
 END;
 $$;
@@ -44,7 +42,6 @@ IF NOT EXISTS (SELECT 1 FROM pets WHERE id = p_pet_id) THEN
 RAISE EXCEPTION 'Cadastro bloqueado: Pet ID=% não encontrado!', p_pet_id;
 END IF;
 
-```
 IF NOT EXISTS (SELECT 1 FROM servicos WHERE id = p_servico_id) THEN
     RAISE EXCEPTION 'Cadastro bloqueado: Serviço ID=% não encontrado!', p_servico_id;
 END IF;
@@ -57,7 +54,6 @@ INSERT INTO agendamentos (pet_id, servico_id, data_agendamento, status)
 VALUES (p_pet_id, p_servico_id, p_data_agendamento, 'agendado');
 
 RAISE NOTICE 'Novo agendamento criado com sucesso para o Pet ID=%.', p_pet_id;
-```
 
 END;
 $$;
@@ -74,7 +70,6 @@ SELECT cliente_id INTO v_cliente_atual
 FROM pets
 WHERE id = p_pet_id;
 
-```
 IF NOT FOUND THEN
     RAISE EXCEPTION 'Transferência cancelada: Pet ID=% não encontrado no sistema!', p_pet_id;
 END IF;
@@ -92,7 +87,6 @@ SET cliente_id = p_cliente_novo_id
 WHERE id = p_pet_id;
 
 RAISE NOTICE 'Propriedade alterada! Pet ID=% transferido com sucesso para o Cliente ID=%.', p_pet_id, p_cliente_novo_id;
-```
 
 END;
 $$;
