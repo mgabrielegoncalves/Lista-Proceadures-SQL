@@ -1,4 +1,4 @@
-1.
+--1.
 
 CREATE OR REPLACE PROCEDURE aplicar_desconto(p_id INT, p_percentual NUMERIC)
 LANGUAGE plpgsql
@@ -32,7 +32,7 @@ RAISE NOTICE 'Desconto aplicado com sucesso! Novo preço do produto ID=% é R$ %
 END;
 $$;
 
-2.
+--2.
 
 CREATE OR REPLACE PROCEDURE cadastrar_agendamento(p_pet_id INT, p_servico_id INT, p_data_agendamento TIMESTAMP)
 LANGUAGE plpgsql
@@ -58,7 +58,7 @@ RAISE NOTICE 'Novo agendamento criado com sucesso para o Pet ID=%.', p_pet_id;
 END;
 $$;
 
-3.
+--3.
 
 CREATE OR REPLACE PROCEDURE transferir_pet(p_pet_id INT, p_cliente_novo_id INT)
 LANGUAGE plpgsql
